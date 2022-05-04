@@ -1,26 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { getMergeSortAnimations } from '../Algorithms/mergeSortAlgo';
-import "./MergeSort.css";
+import { getQuickSortAnimations } from '../Algorithms/quickSortAlgo';
+import "./QuickSort.css";
 
 
 const PRIMARY_COLOR = 'teal';
 
 
-const MergeSort = ({ props }) => {
+const QuickSort = ({ props }) => {
   const [array, setArray] = useState([]);
 
   const randomBetween = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1))
-  }
-
-  const areArraysEqual = (arrayOne, arrayTwo) => {
-    if(arrayOne.length !== arrayTwo.length)
-      return false
-    for(let i = 0; i<arrayOne.length; i++) {
-      if(arrayOne[i] !== arrayTwo[i])
-        return false
-    }
-    return true
   }
 
   const resetArray = () => {
@@ -31,8 +21,8 @@ const MergeSort = ({ props }) => {
     setArray(temp);
   }
 
-  const mergeSort = () => {
-    const animations = getMergeSortAnimations(array);
+  const quickSort = () => {
+    const animations = getQuickSortAnimations(array);
 
     for (let i = 0; i < animations.length; i++) {
 
@@ -60,14 +50,6 @@ const MergeSort = ({ props }) => {
     }
   }
 
-  const quickSort = () => {
-    // const animations = getQuickSortAnimations(array);
-  }
-
-  const heapSort = () => {}
-
-  const bubbleSort = () => {}
-
   useEffect(() => {
     resetArray()
   }, []);
@@ -87,12 +69,9 @@ const MergeSort = ({ props }) => {
       })}
       
       <button onClick={resetArray}>Reset Array</button>
-      <button onClick={mergeSort}>Merge Sort</button>
-      <button onClick={quickSort}>Quick Sort</button>
-      <button onClick={heapSort}>Heap Sort</button>
-      <button onClick={bubbleSort}>Bubble Sort</button>
+      <button onClick={quickSort}>Sort</button>
     </div>
   );
 };
 
-export default MergeSort;
+export default QuickSort;
