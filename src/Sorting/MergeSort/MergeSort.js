@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+
+import { mergeSort } from '../Algorithms/mergeSort';
 import "./MergeSort.css";
 
 
@@ -8,10 +10,20 @@ const PRIMARY_COLOR = 'teal';
 const MergeSort = ({ props }) => {
   const [array, setArray] = useState([]);
 
-  function randomBetween(min, max) {
+  const randomBetween = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1))
   }
-  
+
+  const areArraysEqual = (arrayOne, arrayTwo) => {
+    if(arrayOne.length !== arrayTwo.length)
+      return false
+    for(let i = 0; i<arrayOne.length; i++) {
+      if(arrayOne[i] !== arrayTwo[i])
+        return false
+    }
+    return true
+  }
+
   const resetArray = () => {
     let temp = []
     for(let i=0; i<300; i++) {
@@ -20,7 +32,12 @@ const MergeSort = ({ props }) => {
     setArray(temp);
   }
 
-  const mergeSort = () => {}
+  const mergeSort = () => {
+    const jsSortedArr = array.slice().sort()
+    // const sortedArr = mergeSort(array)
+
+    // console.log(areArraysEqual(jsSortedArr, sortedArr))
+  }
 
   const quickSort = () => {}
 
