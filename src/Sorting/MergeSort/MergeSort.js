@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { mergeSort } from '../Algorithms/mergeSort';
+import { getMergeSortAnimations } from '../Algorithms/mergeSort';
 import "./MergeSort.css";
 
 
@@ -33,13 +33,37 @@ const MergeSort = ({ props }) => {
   }
 
   const mergeSort = () => {
-    const jsSortedArr = array.slice().sort()
-    // const sortedArr = mergeSort(array)
+    const animations = getMergeSortAnimations(array);
 
-    // console.log(areArraysEqual(jsSortedArr, sortedArr))
+    for (let i = 0; i < animations.length; i++) {
+
+      const arrayBars = document.getElementsByClassName('array-bar');
+      const isColorChange = i % 3 !== 2;
+
+      if (isColorChange) {
+        const [barOneIdx, barTwoIdx] = animations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? 'red' : 'teal';
+
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * 1);
+
+      } else {
+        setTimeout(() => {
+          const [barOneIdx, newHeight] = animations[i];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          barOneStyle.height = `${newHeight}px`;
+        }, i * 1);
+      }
+    }
   }
 
-  const quickSort = () => {}
+  const quickSort = () => {
+    // const animations = getQuickSortAnimations(array);
+  }
 
   const heapSort = () => {}
 
