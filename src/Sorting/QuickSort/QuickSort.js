@@ -22,33 +22,34 @@ const QuickSort = ({ props }) => {
   }
 
   const quickSort = () => {
-    const animations = getQuickSortAnimations(array);
-
+    const [animations,sortArray] = getQuickSortAnimations(array);
     for (let i = 0; i < animations.length; i++) {
-
-      const arrayBars = document.getElementsByClassName('array-bar');
-      const isColorChange = i % 3 !== 2;
-
-      if (isColorChange) {
-        const [barOneIdx, barTwoIdx] = animations[i];
-        const barOneStyle = arrayBars[barOneIdx].style;
-        const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? 'red' : 'teal';
-
-        setTimeout(() => {
-          barOneStyle.backgroundColor = color;
-          barTwoStyle.backgroundColor = color;
-        }, i * 1);
-
-      } else {
-        setTimeout(() => {
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${newHeight}px`;
-        }, i * 1);
-      }
-    }
-  }
+        const isColorChange = animations[i][0] == "comparision1" || animations[i][0] == "comparision2";
+        const arrayBars = document.getElementsByClassName('array-bar');
+        if(isColorChange === true) {
+            const color = (animations[i][0] == "comparision1") ? 'red' : 'teal';
+            const [comparision, barOneIndex, barTwoIndex] = animations[i];
+            const barOneStyle = arrayBars[barOneIndex].style;
+            const barTwoStyle = arrayBars[barTwoIndex].style;
+            setTimeout(() => {
+                barOneStyle.backgroundColor = color;
+                barTwoStyle.backgroundColor = color;
+            },i * 1);
+        }
+        else {
+            const [swap, barIndex, newHeight] = animations[i];
+            if (barIndex === -1) {
+                continue;
+            }
+            const barStyle = arrayBars[barIndex].style;
+            setTimeout(() => {
+                barStyle.height = `${newHeight}px`;
+            },i * 1);  
+        }        }
+    // this.setState({array: sortArray})
+    // const RESTORE_TIME = parseInt(1*animations.length/2 + 3000);
+    // setTimeout(() => this.restoreStoreButtons(), RESTORE_TIME);  
+}
 
   useEffect(() => {
     resetArray()
