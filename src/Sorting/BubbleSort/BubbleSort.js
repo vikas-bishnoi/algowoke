@@ -13,16 +13,6 @@ const BubbleSort = ({ props }) => {
     return Math.floor(Math.random() * (max - min + 1))
   }
 
-  const areArraysEqual = (arrayOne, arrayTwo) => {
-    if(arrayOne.length !== arrayTwo.length)
-      return false
-    for(let i = 0; i<arrayOne.length; i++) {
-      if(arrayOne[i] !== arrayTwo[i])
-        return false
-    }
-    return true
-  }
-
   const resetArray = () => {
     let temp = []
     for(let i=0; i<300; i++) {
@@ -32,39 +22,35 @@ const BubbleSort = ({ props }) => {
   }
 
   const bubbleSort = () => {
-    const animations = getBubbleSortAnimations(array);
-
+    const [animations, sortArray] = getBubbleSortAnimations(array);
     for (let i = 0; i < animations.length; i++) {
 
       const arrayBars = document.getElementsByClassName('array-bar');
-      const isColorChange = i % 3 !== 2;
+      const isColorChange = animations[i][0] == "comparision1" || animations[i][0] == "comparision2";
 
       if (isColorChange) {
-        const [barOneIdx, barTwoIdx] = animations[i];
-        const barOneStyle = arrayBars[barOneIdx].style;
-        const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? 'red' : 'teal';
+        const color = (animations[i][0] == "comparision1") ? 'red' : 'teal';
+        const [comparision, barOneIndex, barTwoIndex] = animations[i];
+        const barOneStyle = arrayBars[barOneIndex].style;
+        const barTwoStyle = arrayBars[barTwoIndex].style;
 
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
-        }, i * 1);
+        }, i * 3);
 
       } else {
+        const [swap, barIndex, newHeight] = animations[i];
+        if (barIndex === -1) {
+            continue;
+        }
+        const barStyle = arrayBars[barIndex].style;
         setTimeout(() => {
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${newHeight}px`;
-        }, i * 1);
+          barStyle.height = `${newHeight}px`;
+        },i * 1);  
       }
     }
   }
-
-  const quickSort = () => {
-    // const animations = getQuickSortAnimations(array);
-  }
-
-  const heapSort = () => {}
 
   useEffect(() => {
     resetArray()
