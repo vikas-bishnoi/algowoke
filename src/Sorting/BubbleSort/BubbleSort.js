@@ -26,10 +26,10 @@ const BubbleSort = ({ props }) => {
     for (let i = 0; i < animations.length; i++) {
 
       const arrayBars = document.getElementsByClassName('array-bar');
-      const isColorChange = animations[i][0] == "comparision1" || animations[i][0] == "comparision2";
+      const isColorChange = animations[i][0] === "comparision1" || animations[i][0] === "comparision2";
 
       if (isColorChange) {
-        const color = (animations[i][0] == "comparision1") ? 'red' : 'teal';
+        const color = (animations[i][0] === "comparision1") ? 'red' : 'teal';
         const [comparision, barOneIndex, barTwoIndex] = animations[i];
         const barOneStyle = arrayBars[barOneIndex].style;
         const barTwoStyle = arrayBars[barTwoIndex].style;
