@@ -9,6 +9,21 @@ const DESTINATION_COL = 25;
 
 const Dijkstra = () => {
   const [grid, setGrid] = useState([]);
+  const [isMousePressed, setIsMousePressed] = useState(false);
+
+  const handleMouseDown = (row, col) => {
+    setIsMousePressed(true);
+  }
+  
+  const handleMouseOver = (row, col) => {
+    if(isMousePressed === false)
+        return;
+  }
+
+  const handleMouseUp = () => {
+    setIsMousePressed(false);
+  }
+  
 
   const createSquare = (row, col) => {
     return {
@@ -79,7 +94,7 @@ const Dijkstra = () => {
                 return <div key={idx}>
                     {row.map((square, sqIdx) => {
                         const {row, col, isDestination, isSource} = square;
-                        return <Square row={row} col={col} isDestination={isDestination} isSource={isSource} key={sqIdx}/>;
+                        return <Square row={row} col={col} isDestination={isDestination} isSource={isSource} key={sqIdx} onMouseDown={handleMouseDown} onMouseOver={handleMouseOver} onMouseUp={handleMouseUp}/>;
                     })}
                 </div>
             }) }
