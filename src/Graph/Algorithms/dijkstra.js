@@ -11,8 +11,6 @@ export function dijkstra(grid, source, destination) {
     priority_queue.queue(source)
     while(priority_queue.length !== 0) {
         const top = priority_queue.dequeue();
-        console.log(top.row + " " + top.col + " -> " + top.weight)
-
         if(top.weight === Infinity)
             return visitedNodesInOrder;
 

@@ -44,17 +44,32 @@ const Dijkstra = () => {
     const destination = grid[DESTINATION_ROW][DESTINATION_COL];
     const visitOrder = dijkstra(grid, source, destination);
     const shortestPath = getShortestPath(destination);
-    animate(visitOrder, shortestPath);
-    console.log("HI")
+    animateVisited(visitOrder, shortestPath);
   }
 
-  const animate = (visitOrder, shortestPath) => {
-    for(let i=0; i<visitOrder.length; i++) {
+  const animateVisited = (visitOrder, shortestPath) => {
+    for(let i=0; i<=visitOrder.length; i++) {
+        if(i === visitOrder.length) {
+            setTimeout(() => {
+                animatePath(shortestPath);
+              }, 10 * i);
+            return;
+        }
         setTimeout(() => {
             const square = visitOrder[i];
             document.getElementById(`square-${square.row}-${square.col}`).className = 'square square-visited'
         }, 10 * i)
     }
+  }
+
+  const animatePath = (shortestPath) => {
+    for (let i = 0; i < shortestPath.length; i++) {
+        setTimeout(() => {
+          const square = shortestPath[i];
+          document.getElementById(`square-${square.row}-${square.col}`).className =
+            'square square-shortest-path';
+        }, 50 * i);
+      }
   }
 
   return (

@@ -17,3 +17,7 @@
 .square-visited {
     background-color: pink;
 }
+
+.square-shortest-path {
+    background-color: yellow;
+}
