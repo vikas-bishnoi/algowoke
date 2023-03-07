@@ -3,7 +3,7 @@ import "./InsertionSort.css";
 
 const PRIMARY_COLOR = 'teal'
 
-export const InsertionSort = () => {
+const InsertionSort = () => {
   const [array, setArray] = useState([])
 
   const randomBetween = (min, max) => {
@@ -23,7 +23,7 @@ export const InsertionSort = () => {
   }, []);
 
   const insertionSort = () => {
-
+    
   }
 
   return (
@@ -45,3 +45,5 @@ export const InsertionSort = () => {
     </div>
   );
 }
+
+export default InsertionSort;

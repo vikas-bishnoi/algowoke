@@ -59,15 +59,7 @@ const MergeSort = ({ props }) => {
       }
     }
   }
-
-  const quickSort = () => {
-    // const animations = getQuickSortAnimations(array);
-  }
-
-  const heapSort = () => {}
-
-  const bubbleSort = () => {}
-
+  
   useEffect(() => {
     resetArray()
   }, []);
@@ -88,9 +80,6 @@ const MergeSort = ({ props }) => {
       
       <button onClick={resetArray}>Reset Array</button>
       <button onClick={mergeSort}>Merge Sort</button>
-      <button onClick={quickSort}>Quick Sort</button>
-      <button onClick={heapSort}>Heap Sort</button>
-      <button onClick={bubbleSort}>Bubble Sort</button>
     </div>
   );
 };
