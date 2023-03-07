@@ -43,6 +43,7 @@ const Dijkstra = () => {
     const source = grid[SOURCE_ROW][SOURCE_COL];
     const destination = grid[DESTINATION_ROW][DESTINATION_COL];
     const visitedInOrder = dijkstra(grid, source, destination);
+    const shortestPath = getShortestPath(destination);
     console.log("HI")
   }
 

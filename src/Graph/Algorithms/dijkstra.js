@@ -34,3 +34,12 @@ export function dijkstra(grid, source, destination) {
     }
 }
 
+export function getShortestPath(destination) {
+    const path = [];
+    let current = destination;
+    while(current !== null) {
+        path.push(current)
+        current = current.prev;
+    }
+    return path;
+}
