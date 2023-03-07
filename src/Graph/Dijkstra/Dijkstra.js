@@ -40,9 +40,10 @@ const Dijkstra = () => {
     <>
         <div>
             {grid.map((row, idx) => {
-                return <div>
+                return <div key={idx}>
                     {row.map((square, sqIdx) => {
-                        return <Square square/>;
+                        const {row, col, isDestination, isSource} = square;
+                        return <Square row={row} col={col} isDestination={isDestination} isSource={isSource} key={sqIdx}/>;
                     })}
                 </div>
             }) }
