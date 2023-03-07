@@ -5,7 +5,6 @@ import "./MergeSort.css";
 
 const PRIMARY_COLOR = 'teal';
 
-
 const MergeSort = ({ props }) => {
   const [array, setArray] = useState([]);
 
