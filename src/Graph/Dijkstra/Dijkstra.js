@@ -11,6 +11,8 @@ const Dijkstra = () => {
 
   const createSquare = (row, col) => {
     return {
+        isSource: SOURCE_ROW === row && SOURCE_COL === col,
+        isDestination: DESTINATION_ROW === row && DESTINATION_COL === col,
         row,
         col,
         isVisited: false
@@ -40,7 +42,7 @@ const Dijkstra = () => {
             {grid.map((row, idx) => {
                 return <div>
                     {row.map((square, sqIdx) => {
-                        return <Square />;
+                        return <Square square/>;
                     })}
                 </div>
             }) }
