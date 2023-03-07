@@ -25,9 +25,7 @@ const InsertionSort = () => {
   }, []);
 
   const insertionSort = () => {
-      console.log('HI')
       const [animations, sortedArray] = getInsertionSortAnimations(array);
-      console.log('HI')
       for (let i = 0; i < animations.length; i++) {
           const isColorChange = (animations[i][0] === "comparision1") || (animations[i][0] === "comparision2");
           const arrayBars = document.getElementsByClassName('array-bar');
@@ -49,6 +47,7 @@ const InsertionSort = () => {
               },i * 1);  
           }
       }
+      console.log(animations.length)
   }
 
   return (

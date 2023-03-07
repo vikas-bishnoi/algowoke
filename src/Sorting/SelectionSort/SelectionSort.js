@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { getSelectionSortAnimations } from '../Algorithms/selectionSortAlgo';
+
+import "./SelectionSort.css";
 
 const PRIMARY_COLOR = "teal"
 const SECONDARY_COLOR = "red"
@@ -24,12 +27,13 @@ const SelectionSort = () => {
 
   const selectionSort = () => {
     const [animations, sortedArray] = getSelectionSortAnimations(array);
+    
     for(let i = 0; i<animations.length; i++) {
       const isColorChange = (animations[i][0] === "comparision1") || (animations[i][0] === "comparision2");
       const arrayBars = document.getElementsByClassName('array-bar');
       if(isColorChange === true) {
-        color = animations[i][0] === "comparision1" ? "SECONDARY_COLOR" : "PRIMARY_COLOR";
-        const [temp, barOneIdx, barTwoIndex] = animations[i];
+        const color = (animations[i][0] === "comparision1") ? SECONDARY_COLOR : PRIMARY_COLOR;
+        const [temp, barOneIndex, barTwoIndex] = animations[i];
         const barOneStyle = arrayBars[barOneIndex].style;
         const barTwoStyle = arrayBars[barTwoIndex].style;
         setTimeout(() => {
@@ -38,12 +42,13 @@ const SelectionSort = () => {
         }, i * 1);
       } else {
         const [temp, barIndex, newHeight] = animations[i];
-        const barStyle = arrayBars[barIndex];
+        const barStyle = arrayBars[barIndex].style;
         setTimeout(() => {
           barStyle.height = `${newHeight}px`;
         }, i * 1);
       }
     }
+    console.log("afs", animations.length)
   }
 
   return (
