@@ -5,11 +5,12 @@ import BubbleSort from "./Sorting/BubbleSort/BubbleSort";
 import InsertionSort from "./Sorting/InsertionSort/InsertionSort";
 import SelectionSort from "./Sorting/SelectionSort/SelectionSort";
 import Dijkstra from "./Graph/Dijkstra/Dijkstra";
+import Home from "./Home/Home";
 
 function App() {
   return (
-    <div className="App">
-      <Dijkstra />
+    <div>
+      <Home />
     </div>
   );
 }
