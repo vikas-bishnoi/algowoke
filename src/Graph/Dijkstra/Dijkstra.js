@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { dijkstra } from '../Algorithms/dijkstra';
+import { dijkstra, getShortestPath } from '../Algorithms/dijkstra';
 import Square from '../Components/Square';
 
 const SOURCE_ROW = 4;
@@ -42,9 +42,19 @@ const Dijkstra = () => {
   const visualizeDijkstra = () => {
     const source = grid[SOURCE_ROW][SOURCE_COL];
     const destination = grid[DESTINATION_ROW][DESTINATION_COL];
-    const visitedInOrder = dijkstra(grid, source, destination);
+    const visitOrder = dijkstra(grid, source, destination);
     const shortestPath = getShortestPath(destination);
+    animate(visitOrder, shortestPath);
     console.log("HI")
+  }
+
+  const animate = (visitOrder, shortestPath) => {
+    for(let i=0; i<visitOrder.length; i++) {
+        setTimeout(() => {
+            const square = visitOrder[i];
+            document.getElementById(`square-${square.row}-${square.col}`).className = 'square square-visited'
+        }, 10 * i)
+    }
   }
 
   return (

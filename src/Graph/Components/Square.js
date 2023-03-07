@@ -3,9 +3,9 @@ import './Square.css';
 
 const Square = ({row, col, isSource, isDestination}) => {
     const additionalClasses = isSource
-      ? 'node-source'
+      ? 'square-source'
       : isDestination
-      ? 'node-destination'
+      ? 'square-destination'
       : '';
   return (
     <div id={`square-${row}-${col}`} className={`square ${additionalClasses}`}></div>

@@ -5,11 +5,15 @@
     display: inline-block;
 }
 
-.node-source {
+.square-source {
     background-color: green;
 }
 
-.node-destination {
+.square-destination {
     background-color: red;
 
+}
+
+.square-visited {
+    background-color: pink;
 }

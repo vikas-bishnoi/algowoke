@@ -6,11 +6,12 @@ export function dijkstra(grid, source, destination) {
     let m = grid[0].length;
     const visitedNodesInOrder = [];
     source.weight = 0;
-    const priority_queue = new PriorityQueue({ comparator: function(a, b) { return b.weight - a.weight; }});
+    source.isVisited = true;
+    const priority_queue = new PriorityQueue({ comparator: function(a, b) { return a.weight - b.weight; }});
     priority_queue.queue(source)
     while(priority_queue.length !== 0) {
         const top = priority_queue.dequeue();
-        top.isVisited = true;
+        console.log(top.row + " " + top.col + " -> " + top.weight)
 
         if(top.weight === Infinity)
             return visitedNodesInOrder;
@@ -23,12 +24,14 @@ export function dijkstra(grid, source, destination) {
             let nr = top.row + dirs[i][0];
             let nc = top.col + dirs[i][1];
 
-            if(nr < 0 || nc < 0 || nr >= n || nc >= m || grid[nr][nc].isVisited == true) {
+            if(nr < 0 || nc < 0 || nr >= n || nc >= m || grid[nr][nc].isVisited === true) {
                 continue;
             }
+
             const neighbor = grid[nr][nc];
             neighbor.weight = top.weight + 1;
             neighbor.prev = top;
+            neighbor.isVisited = true;
             priority_queue.queue(neighbor);
         }
     }
