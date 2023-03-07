@@ -1,11 +1,13 @@
 import React from 'react';
 import './Square.css';
 
-const Square = ({row, col, isSource, isDestination, onMouseDown, onMouseOver, onMouseUp}) => {
+const Square = ({row, col, isSource, isDestination, isBlock, onMouseDown, onMouseOver, onMouseUp}) => {
     const additionalClasses = isSource
       ? 'square-source'
       : isDestination
       ? 'square-destination'
+      : isBlock
+      ? 'square-block'
       : '';
   return (
     <div 
