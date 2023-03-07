@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Square from '../Components/Square';
 
 const Dijkstra = () => {
   const [grid, setGrid] = useState([]);
@@ -19,7 +20,7 @@ const Dijkstra = () => {
         {grid.map((row, idx) => {
             return <div>
                 {row.map((square, sqIdx) => {
-                    return 'x';
+                    return <Square />;
                 })}
             </div>
         }) }
