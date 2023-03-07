@@ -22,7 +22,7 @@ export function dijkstra(grid, source, destination) {
             let nr = top.row + dirs[i][0];
             let nc = top.col + dirs[i][1];
 
-            if(nr < 0 || nc < 0 || nr >= n || nc >= m || grid[nr][nc].isVisited === true) {
+            if(nr < 0 || nc < 0 || nr >= n || nc >= m || grid[nr][nc].isVisited === true || grid[nr][nc].isBlock) {
                 continue;
             }
 
