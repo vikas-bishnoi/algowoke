@@ -1,9 +1,9 @@
 import React from 'react';
 import './Square.css';
 
-const Square = () => {
+const Square = ({row, col}) => {
   return (
-    <div className='square'></div>
+    <div id={`square-${row}-${col}`} className='square'></div>
   )
 }
 

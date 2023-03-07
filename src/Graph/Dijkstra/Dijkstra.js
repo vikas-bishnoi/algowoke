@@ -35,15 +35,20 @@ const Dijkstra = () => {
   }, []);
 
   return (
-    <div>
-        {grid.map((row, idx) => {
-            return <div>
-                {row.map((square, sqIdx) => {
-                    return <Square />;
-                })}
-            </div>
-        }) }
-    </div>
+    <>
+        <div>
+            {grid.map((row, idx) => {
+                return <div>
+                    {row.map((square, sqIdx) => {
+                        return <Square />;
+                    })}
+                </div>
+            }) }
+        </div>
+        <button onClick={() => {}}>
+            Visualize
+        </button>
+    </>
   )
 }
 
