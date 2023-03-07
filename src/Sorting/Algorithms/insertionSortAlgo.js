@@ -1,6 +1,8 @@
 export function getInsertionSortAnimations(array) {
+    console.log('HI')
     let animations  = [];
     let auxillaryArray = array.slice();
+    
     insertionSort(auxillaryArray, animations);
     array = auxillaryArray;
     return [animations, array];

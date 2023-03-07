@@ -11,17 +11,7 @@ const MergeSort = ({ props }) => {
   const randomBetween = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1))
   }
-
-  const areArraysEqual = (arrayOne, arrayTwo) => {
-    if(arrayOne.length !== arrayTwo.length)
-      return false
-    for(let i = 0; i<arrayOne.length; i++) {
-      if(arrayOne[i] !== arrayTwo[i])
-        return false
-    }
-    return true
-  }
-
+  
   const resetArray = () => {
     let temp = []
     for(let i=0; i<300; i++) {
