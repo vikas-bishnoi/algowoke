@@ -6,12 +6,24 @@ import InsertionSort from "./Sorting/InsertionSort/InsertionSort";
 import SelectionSort from "./Sorting/SelectionSort/SelectionSort";
 import Dijkstra from "./Graph/Dijkstra/Dijkstra";
 import Home from "./Home/Home";
+import Navbar from "./Home/Navbar";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <>
+    <Router>
+    <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+    </>
   );
 }
 
