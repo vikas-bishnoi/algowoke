@@ -1,19 +1,16 @@
 import React from 'react'
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import './Navbar.css'
 const Navbar = () => {
   return (
     <div className="navbar">
+            <Link to="/">
         <div className="logo">
             AlgoWoke
         </div>
+            </Link>
         <div className="menu">
-            <NavLink to="/" className={({ isActive }) =>
-              `link ${isActive ? 'link active' : ''}`
-            }>
-                <div className='title'>Tasks</div>
-            </NavLink>
             <NavLink to="/graph-algo" className={({ isActive }) =>
               `link ${isActive ? 'link active' : ''}`
             }>
