@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./Select.css";
 
-const Select = ({ label, placeholder, options }) => {
+const Select = ({ label, placeholder, options, setSelected, selectedOption, setSelectedOption }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
   const [selectedLabel, setSelectedLabel] = useState("");
 
   const onClickOption = (value, label) => {
-    setSelectedValue(value);
+    setSelectedOption(value);
     setSelectedLabel(label);
+    setSelected(true)
     setIsOpen(false);
   };
 
@@ -38,7 +38,7 @@ const Select = ({ label, placeholder, options }) => {
     <div className="select" tabIndex="0">
       <label className="label">{label}</label>
       <div className="selection" onClick={onClick}>
-        {selectedValue === "" ? (
+        {selectedOption === "" ? (
           <div className="placeholder">{placeholder}</div>
         ) : (
           <>
@@ -54,7 +54,7 @@ const Select = ({ label, placeholder, options }) => {
           {options.map((option, index) => {
             const { value, label } = option;
             const className =
-              "option" + (selectedValue === value ? " selected" : "");
+              "option" + (selectedOption === value ? " selected" : "");
             return (
               <div
                 key={value}

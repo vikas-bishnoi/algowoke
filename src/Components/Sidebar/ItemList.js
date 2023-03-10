@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "./Select";
 import SliderInput from "./SliderInput";
 import "./Sidebar.css";
@@ -18,12 +18,28 @@ const ItemList = ({
   speed,
   setSpeed,
   onGenerate,
+  onVisualize
 }) => {
+  const [selected, setSelected] = useState(true)
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const visualizeHandler = () => {
+    if(selectedOption === '') {
+      setSelected(false)
+    } else {
+      onVisualize(selectedOption)
+    }
+  }
   return (
     <ul className="items-list">
       <li className="item-container">
+        {!selected ? <span style={{color: 'red'}}>Select an algorithem</span> : <span><br/></span>}
+        
         <div className="item-wrapper">
           <Select
+            selectedOption={selectedOption}
+            setSelected={setSelected}
+            setSelectedOption={setSelectedOption}
             label="Algorithm"
             placeholder="Options"
             options={optionData}
@@ -44,7 +60,7 @@ const ItemList = ({
         <button className="btn" style={{ backgroundColor: "#eeb1b1" }} onClick={() => onGenerate()}>
           Generate
         </button>
-        <button className="btn" style={{ backgroundColor: "#b4ead0" }}>
+        <button className="btn" style={{ backgroundColor: "#b4ead0" }} onClick={visualizeHandler}>
           Visualize
         </button>
       </div>

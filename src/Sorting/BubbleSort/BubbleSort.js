@@ -13,7 +13,7 @@ const BubbleSort = ({ unsortedArray }) => {
     setArray(unsortedArray);
   }, [unsortedArray]);
 
-  const bubbleSort = () => {
+  const bubbleSort = (array) => {
     const [animations, sortArray] = getBubbleSortAnimations(array);
     for (let i = 0; i < animations.length; i++) {
 
