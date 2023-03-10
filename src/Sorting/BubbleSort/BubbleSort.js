@@ -15,8 +15,8 @@ const BubbleSort = ({ props }) => {
 
   const resetArray = () => {
     let temp = []
-    for(let i=0; i<300; i++) {
-      temp.push(randomBetween(5, 550))
+    for(let i=0; i<30; i++) {
+      temp.push(randomBetween(100, 500))
     }
     setArray(temp);
   }
@@ -69,9 +69,6 @@ const BubbleSort = ({ props }) => {
             }}></div>
         )
       })}
-      
-      <button onClick={resetArray}>Reset Array</button>
-      <button onClick={bubbleSort}>Bubble Sort</button>
     </div>
   );
 };
