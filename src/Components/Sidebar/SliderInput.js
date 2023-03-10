@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './SliderInput.css'
 const SliderInput = () => {
-  const [value, setValue] = React.useState(5);
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    setValue(10)
+  }, [])
   return (
     <div className="slider-input">
       <span>Speed:</span>

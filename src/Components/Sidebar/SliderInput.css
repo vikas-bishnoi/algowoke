@@ -1,2 +1,8 @@
 .slider-input {
+    width: 100%;
+    padding: 0 1em 0 1em;
+}
+
+.custom-range {
+    width: 95%;
 }
