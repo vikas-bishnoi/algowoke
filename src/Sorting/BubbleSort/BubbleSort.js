@@ -10,9 +10,8 @@ const BubbleSort = ({ unsortedArray }) => {
   const [array, setArray] = useState([]);
 
   useEffect(() => {
-    console.log("unsortedArray", unsortedArray)
     setArray(unsortedArray);
-  }, []);
+  }, [unsortedArray]);
 
   const bubbleSort = () => {
     const [animations, sortArray] = getBubbleSortAnimations(array);

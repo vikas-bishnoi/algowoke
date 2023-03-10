@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "./Select";
 import SliderInput from "./SliderInput";
-import './Sidebar.css'
+import "./Sidebar.css";
 
 const optionData = [
   { value: "us", label: "United States" },
@@ -9,35 +9,44 @@ const optionData = [
   { value: "ae", label: "United Arab Emirates" },
 ];
 
-const ItemList = ({min, max, optionData}) => {
+const ItemList = ({
+  min,
+  max,
+  optionData,
+  size,
+  setSize,
+  speed,
+  setSpeed,
+  onGenerate,
+}) => {
   return (
     <ul className="items-list">
       <li className="item-container">
         <div className="item-wrapper">
-        <Select
+          <Select
             label="Algorithm"
             placeholder="Options"
             options={optionData}
-        />
+          />
         </div>
       </li>
       <li className="item-container item-active">
         <div className="item-wrapper">
-          <SliderInput label="Size" min={min} max={max} step={1}/>
+          <SliderInput label="Size" min={min} max={max} step={1} value={size} setValue={setSize}/>
         </div>
       </li>
       <li className="item-container item-active">
         <div className="item-wrapper">
-          <SliderInput label="Speed" min={0.25} max={2} step={0.25} />
+          <SliderInput label="Speed" min={0.25} max={2} step={0.25} value={speed} setValue={setSpeed}/>
         </div>
       </li>
       <div style={{ display: "flex" }}>
-            <button className="btn" style={{backgroundColor: '#eeb1b1'}}>
-              Generate
-            </button>
-            <button className="btn" style={{backgroundColor: '#b4ead0'}}>
-              Visualize
-            </button>
+        <button className="btn" style={{ backgroundColor: "#eeb1b1" }} onClick={() => onGenerate()}>
+          Generate
+        </button>
+        <button className="btn" style={{ backgroundColor: "#b4ead0" }}>
+          Visualize
+        </button>
       </div>
     </ul>
   );

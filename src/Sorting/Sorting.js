@@ -16,24 +16,33 @@ const optionData = [
 
 const Sorting = () => {
   const [size, setSize] = useState(0);
+  const [speed, setSpeed] = useState(1);
   const [array, setArray] = useState([]);
   
   useEffect(() => {
     setSize(Math.floor((MAX + MIN) / 2))
     generateArray(size)
-  }, [size]);
+  }, []);
 
-  const generateArray = (size) => {
+  const generateArray = () => {
+    console.log('HI')
     let temp = []
     for(let i = 0; i < size; i++) {
       temp.push(Math.floor(Math.random() * (500 - 100 + 1)))
     }
+    
+    console.log(size)
+    console.log(temp)
     setArray(temp);
+  }
+
+  const onVisualize= () => {
+    console.log('hi')
   }
 
   return (
     <div className="sorting">
-      <SideBar min={MIN} max={MAX} optionData={optionData}/>
+      <SideBar min={MIN} max={MAX} optionData={optionData} size={size} setSize={setSize} speed={speed} setSpeed={setSpeed} onGenerate={generateArray} />
       <div className="algorithem">
         {array.length && <BubbleSort unsortedArray={array}/>}
       </div>

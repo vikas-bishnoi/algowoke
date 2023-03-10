@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import './SliderInput.css'
-const SliderInput = ({label, min, max, step}) => {
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    setValue(Math.floor((min + max) / 2))
-  }, [])
+const SliderInput = ({label, min, max, step, value, setValue}) => {
+  console.log('value', value)
+  const changeHandler = (e) => {
+    e.preventDefault();
+    console.log(setValue)
+    setValue(e.target.value);
+  }
   return (
     <div className="slider-input">
       <span>{label}: {value}</span>
@@ -16,7 +18,7 @@ const SliderInput = ({label, min, max, step}) => {
         max={max}
         step={step}
         value={value}
-        onChange={(e) => setValue(e.target.valueAsNumber)}
+        onChange={(e) => changeHandler(e)}
       />
     </div>
   );
