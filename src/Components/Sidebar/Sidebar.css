@@ -1,0 +1,33 @@
+.sidebar {
+    max-width: 20%;
+    background: #354052;
+    color: #adb5bd;
+    transition: all 0.5s;
+}
+
+.sidebar-header {
+    margin-top: none;
+    background: #313b4c;
+    color: #fff;
+    padding: 1em;
+}
+  
+p {
+    color: #fff;
+    padding: 10px;
+    margin: 0px;
+}
+  
+.collapse.show, 
+.collapsing {
+    background: #313b4c;
+}
+
+li a.dropdown-toggle::after {
+    display: inline-flex;
+    position: relative;
+    left: 60%;
+    top: 10%
+}
+  
+  
