@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./Select.css";
 const Select = ({ label, placeholder, options }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState('');
@@ -109,7 +109,7 @@ const Select = ({ label, placeholder, options }) => {
         </div>
         {isOpen && options.length !== 0 && options.map((option, index) => {
             let className = "option"
-            if (selectedValue == option) className += " selected"
+            if (selectedValue === option) className += " selected"
             if (index === focusedValue) className += " focused"
             return (
                 <div
