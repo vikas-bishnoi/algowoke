@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import './SliderInput.css'
-const SliderInput = () => {
+const SliderInput = ({label, min, max, step}) => {
   const [value, setValue] = useState(0);
   useEffect(() => {
-    setValue(10)
+    setValue(Math.floor((min + max) / 2))
   }, [])
   return (
     <div className="slider-input">
-      <span>Speed: {value}</span>
+      <span>{label}: {value}</span>
       <br />
       <input
         type="range"
         className="custom-range"
-        min={0}
-        max={20}
-        step={1}
+        min={min}
+        max={max}
+        step={step}
         value={value}
         onChange={(e) => setValue(e.target.valueAsNumber)}
       />

@@ -9,10 +9,10 @@ const optionData = [
   { value: "ae", label: "United Arab Emirates" },
 ];
 
-const ItemList = () => {
+const ItemList = ({min, max, optionData}) => {
   return (
     <ul className="items-list">
-      {/* <li className="item-container">
+      <li className="item-container">
         <div className="item-wrapper">
         <Select
             label="Algorithm"
@@ -20,17 +20,17 @@ const ItemList = () => {
             options={optionData}
         />
         </div>
-      </li> */}
+      </li>
       <li className="item-container item-active">
         <div className="item-wrapper">
-          <SliderInput />
+          <SliderInput label="Size" min={min} max={max} step={1}/>
         </div>
       </li>
-      {/* <li className="item-container">
+      <li className="item-container item-active">
         <div className="item-wrapper">
-          <span className="sidebar-item">Size</span>
+          <SliderInput label="Speed" min={0.25} max={2} step={0.25} />
         </div>
-      </li> */}
+      </li>
       <div style={{ display: "flex" }}>
             <button className="btn" style={{backgroundColor: '#eeb1b1'}}>
               Generate
