@@ -1,9 +1,9 @@
 .array-container {
-    height: 10%;
+  height: 10%;
 }
 
 .array-bar {
-    width: 8px;
-    display: inline-block;
-    margin: 0 4px;
+  width: 8px;
+  display: inline-block;
+  margin: 0 4px;
 }

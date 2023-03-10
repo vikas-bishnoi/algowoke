@@ -11,7 +11,9 @@ const SideBar = ({
   speed,
   setSpeed,
   onGenerate,
-  onVisualize
+  onVisualize,
+  disabled,
+  setDisabled
 }) => {
   return (
     <div className="sidebar-container">
@@ -26,6 +28,8 @@ const SideBar = ({
           setSpeed={setSpeed}
           onGenerate={onGenerate}
           onVisualize={onVisualize}
+          disabled={disabled}
+          setDisabled={setDisabled}
         />
       </div>
     </div>

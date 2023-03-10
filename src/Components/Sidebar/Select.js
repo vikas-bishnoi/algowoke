@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import "./Select.css";
 
-const Select = ({ label, placeholder, options, setSelected, selectedOption, setSelectedOption }) => {
+const Select = ({
+  label,
+  placeholder,
+  options,
+  setSelected,
+  selectedOption,
+  setSelectedOption,
+  setDisabled,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState("");
 
   const onClickOption = (value, label) => {
     setSelectedOption(value);
     setSelectedLabel(label);
-    setSelected(true)
+    setSelected(true);
     setIsOpen(false);
+    setDisabled(false);
   };
 
   const onClick = () => {
