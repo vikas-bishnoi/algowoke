@@ -4,12 +4,17 @@ import './Sidebar.css'
 
 const SideBar = () => {
     return (
-      <div className="sidebar">
-        <div className="sidebar-header">
-            <p>lorem10 </p>
-            <p>lorem10 </p>
-            <p>lorem10 </p>
-            <p>lorem10 </p>
+      <div className="sidebar-container">
+        <div className="sidebar-wrapper">
+          <ul className="items-list">
+            <li className="item-container">
+              <div className="item-wrapper">
+                <span className="sidebar-item">
+                  Item 1
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     );

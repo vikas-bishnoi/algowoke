@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import Home from "./Home/Home";
-import Navbar from './Components/Sidebar/Sidebar'
+import Navbar from './Components/Navbar/Navbar'
 import Graph from './Graph/Graph';
 import Sorting from './Sorting/Sorting';
 
