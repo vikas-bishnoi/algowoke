@@ -6,20 +6,13 @@ import "./BubbleSort.css";
 const PRIMARY_COLOR = 'teal';
 
 
-const BubbleSort = ({ props }) => {
+const BubbleSort = ({ unsortedArray }) => {
   const [array, setArray] = useState([]);
 
-  const randomBetween = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1))
-  }
-
-  const resetArray = () => {
-    let temp = []
-    for(let i=0; i<30; i++) {
-      temp.push(randomBetween(100, 500))
-    }
-    setArray(temp);
-  }
+  useEffect(() => {
+    console.log("unsortedArray", unsortedArray)
+    setArray(unsortedArray);
+  }, []);
 
   const bubbleSort = () => {
     const [animations, sortArray] = getBubbleSortAnimations(array);
@@ -52,13 +45,9 @@ const BubbleSort = ({ props }) => {
     }
   }
 
-  useEffect(() => {
-    resetArray()
-  }, []);
-
   return (
     <div className="array-container">
-      {array.map((value, idx) => {
+      {array.length !== 0 && array.map((value, idx) => {
         return (
           <div
             className="array-bar"

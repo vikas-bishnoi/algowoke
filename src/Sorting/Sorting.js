@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import SideBar from "../Components/Sidebar/Sidebar";
 import BubbleSort from "./BubbleSort/BubbleSort";
 import './Sorting.css'
@@ -15,10 +15,28 @@ const optionData = [
 ];
 
 const Sorting = () => {
+  const [size, setSize] = useState(0);
+  const [array, setArray] = useState([]);
+  
+  useEffect(() => {
+    setSize(Math.floor((MAX + MIN) / 2))
+    generateArray(size)
+  }, [size]);
+
+  const generateArray = (size) => {
+    let temp = []
+    for(let i = 0; i < size; i++) {
+      temp.push(Math.floor(Math.random() * (500 - 100 + 1)))
+    }
+    setArray(temp);
+  }
+
   return (
     <div className="sorting">
       <SideBar min={MIN} max={MAX} optionData={optionData}/>
-      <BubbleSort />
+      <div className="algorithem">
+        {array.length && <BubbleSort unsortedArray={array}/>}
+      </div>
     </div>
   );
 };
