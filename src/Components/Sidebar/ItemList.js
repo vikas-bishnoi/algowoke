@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "./Select";
 import SliderInput from "./SliderInput";
+import './Sidebar.css'
 
 const optionData = [
   { value: "us", label: "United States" },
@@ -31,16 +32,12 @@ const ItemList = () => {
         </div>
       </li> */}
       <div style={{ display: "flex" }}>
-        <li className="item-container">
-          <div className="item-wrapper">
-            <button>Generate</button>
-          </div>
-        </li>
-        <li className="item-container">
-          <div className="item-wrapper">
-            <button>Start</button>
-          </div>
-        </li>
+            <button className="btn" style={{backgroundColor: '#eeb1b1'}}>
+              Generate
+            </button>
+            <button className="btn" style={{backgroundColor: '#b4ead0'}}>
+              Visualize
+            </button>
       </div>
     </ul>
   );

@@ -7,21 +7,17 @@ const SliderInput = () => {
   }, [])
   return (
     <div className="slider-input">
-      <span>Speed:</span>
+      <span>Speed: {value}</span>
       <br />
       <input
         type="range"
         className="custom-range"
         min={0}
         max={20}
-        step={0.1}
+        step={1}
         value={value}
         onChange={(e) => setValue(e.target.valueAsNumber)}
       />
-      <br />
-      <button className="btn btn-primary" onClick={() => alert(value)}>
-        Show value power
-      </button>
     </div>
   );
 };
