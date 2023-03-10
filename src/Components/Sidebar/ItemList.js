@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "./Select";
+import SliderInput from "./SliderInput";
 
 const optionData = [
   { value: "us", label: "United States" },
@@ -10,7 +11,7 @@ const optionData = [
 const ItemList = () => {
   return (
     <ul className="items-list">
-      <li className="item-container">
+      {/* <li className="item-container">
         <div className="item-wrapper">
         <Select
             label="Algorithm"
@@ -18,13 +19,13 @@ const ItemList = () => {
             options={optionData}
         />
         </div>
-      </li>
-      {/* <li className="item-container item-active">
+      </li> */}
+      <li className="item-container item-active">
         <div className="item-wrapper">
-          <span className="sidebar-item">Speed</span>
+          <SliderInput />
         </div>
       </li>
-      <li className="item-container">
+      {/* <li className="item-container">
         <div className="item-wrapper">
           <span className="sidebar-item">Size</span>
         </div>
