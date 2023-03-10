@@ -3,7 +3,7 @@ import Select from "./Select";
 
 const optionData = [
   { value: "us", label: "United States" },
-  { value: "us", label: "United States" },
+  { value: "in", label: "India" },
   { value: "ae", label: "United Arab Emirates" },
 ];
 
@@ -19,7 +19,7 @@ const ItemList = () => {
         />
         </div>
       </li>
-      <li className="item-container item-active">
+      {/* <li className="item-container item-active">
         <div className="item-wrapper">
           <span className="sidebar-item">Speed</span>
         </div>
@@ -28,7 +28,7 @@ const ItemList = () => {
         <div className="item-wrapper">
           <span className="sidebar-item">Size</span>
         </div>
-      </li>
+      </li> */}
       <div style={{ display: "flex" }}>
         <li className="item-container">
           <div className="item-wrapper">

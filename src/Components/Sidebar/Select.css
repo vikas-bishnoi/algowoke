@@ -21,13 +21,6 @@ svg {
   display: inline-block;
   width: 320px;
 }
-.select:focus {
-    outline: 0;
-}
-
-/* .selection {
-    box-shadow: 0 0 1px 1px #00a9e0;
-} */
 
 .label {
   display: block;
@@ -96,16 +89,8 @@ svg {
   cursor: pointer;
 }
 
-.checkbox {
-  content: '';
-  vertical-align: top;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  padding: 2px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  margin: 2px 12px 0 0;
-  color: #fff;
-  font-size: 10px;
+.selected {
+  border: 1px solid  #00a9e0;
+  margin: -1px -1px 0;
+  background: #d9f2fb;
 }
