@@ -1,6 +1,6 @@
 .navbar {
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(228, 228, 228);
   text-align: right;
   position: relative;
 }
@@ -12,9 +12,8 @@
     top: 0;
     left: 0;
     font-size: 32px;
-    font-weight: 200;
+    font-weight: 500;
     padding: 26px;
-    border-right: 1px solid black;
 }
 
 .link {
