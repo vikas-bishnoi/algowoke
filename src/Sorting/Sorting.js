@@ -80,7 +80,7 @@ const Sorting = () => {
         if (i === animations.length) {
           setTimeout(() => {
             resolve(setArray(sortedArray));
-          }, i * speed * 30);
+          }, (i * 30)/speed);
           break;
         }
         const isColorChange =
@@ -95,13 +95,13 @@ const Sorting = () => {
           setTimeout(() => {
             barOneStyle.backgroundColor = color;
             barTwoStyle.backgroundColor = color;
-          }, i * 1);
+          }, i * 30 / speed);
         } else {
           const [temp, barIndex, newHeight] = animations[i];
           const barStyle = arrayBars[barIndex].style;
           setTimeout(() => {
             barStyle.height = `${newHeight}px`;
-          }, i * 1);
+          }, i * 30 / speed);
         }
       }
       console.log(animations.length);
