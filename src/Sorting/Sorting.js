@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import { getBubbleSortAnimations } from "./Algorithms/bubbleSortAlgo";
 import { getInsertionSortAnimations } from "./Algorithms/insertionSortAlgo";
 import { getSelectionSortAnimations } from "./Algorithms/selectionSortAlgo";
-import { ge } from "./Algorithms/insertionSortAlgo";
+import { getMergeSortAnimations } from "./Algorithms/mergeSortAlgo";
+import { getQuickSortAnimations } from "./Algorithms/quickSortAlgo";
 import SideBar from "../Components/Sidebar/Sidebar";
 import Array from "./Array/Array";
 import "./Sorting.css";
-import { getMergeSortAnimations } from "./Algorithms/mergeSortAlgo";
-import { getQuickSortAnimations } from "./Algorithms/quickSortAlgo";
 
 const MIN = 5;
-const MAX = 30;
+const MAX = 25;
 
 const optionData = [
   { value: "bubbleSort", label: "Bubble Sort" },
@@ -195,11 +194,11 @@ const Sorting = () => {
           break;
         }
         const isColorChange =
-          animations[i][0] == "comparision1" ||
-          animations[i][0] == "comparision2";
+          animations[i][0] === "comparision1" ||
+          animations[i][0] === "comparision2";
         const arrayBars = document.getElementsByClassName("array-bar");
         if (isColorChange === true) {
-          const color = animations[i][0] == "comparision1" ? "red" : "teal";
+          const color = animations[i][0] === "comparision1" ? "red" : "teal";
           const [comparision, barOneIndex, barTwoIndex] = animations[i];
           const barOneStyle = arrayBars[barOneIndex].style;
           const barTwoStyle = arrayBars[barTwoIndex].style;
