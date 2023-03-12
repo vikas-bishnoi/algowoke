@@ -6,6 +6,7 @@ import { ge } from "./Algorithms/insertionSortAlgo";
 import SideBar from "../Components/Sidebar/Sidebar";
 import Array from "./Array/Array";
 import "./Sorting.css";
+import { getMergeSortAnimations } from "./Algorithms/mergeSortAlgo";
 
 const MIN = 5;
 const MAX = 30;
@@ -146,6 +147,42 @@ const Sorting = () => {
     });
   };
 
+  const mergeSort = (array) => {
+    return new Promise((resolve, reject) => {
+      const [animations, sortedArray] = getMergeSortAnimations(array);
+      console.log(sortedArray)
+      for (let i = 0; i <= animations.length; i++) {
+        if (i === animations.length) {
+          setTimeout(() => {
+            resolve(setArray(sortedArray));
+          }, (i * 30) / speed);
+          break;
+        }
+
+        const arrayBars = document.getElementsByClassName("array-bar");
+        const isColorChange = i % 3 !== 2;
+
+        if (isColorChange) {
+          const [barOneIdx, barTwoIdx] = animations[i];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          const barTwoStyle = arrayBars[barTwoIdx].style;
+          const color = i % 3 === 0 ? "red" : "teal";
+
+          setTimeout(() => {
+            barOneStyle.backgroundColor = color;
+            barTwoStyle.backgroundColor = color;
+          }, (i * 30) / speed);
+        } else {
+          setTimeout(() => {
+            const [barOneIdx, newHeight] = animations[i];
+            const barOneStyle = arrayBars[barOneIdx].style;
+            barOneStyle.height = `${newHeight}px`;
+          }, (i * 30) / speed);
+        }
+      }
+    });
+  };
+
   const visualizeSort = (algorithem) => {
     if (algorithem === "bubbleSort") {
       bubbleSort(array).then(() => {
@@ -156,6 +193,9 @@ const Sorting = () => {
         setDisabled(false);
       });
     } else if (algorithem === "mergeSort") {
+      mergeSort(array).then(() => {
+        setDisabled(false);
+      });
     } else if (algorithem === "quickSort") {
     } else if (algorithem === "selectionSort") {
       selectionSort(array).then(() => {
