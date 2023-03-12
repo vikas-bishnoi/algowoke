@@ -7,6 +7,7 @@ import SideBar from "../Components/Sidebar/Sidebar";
 import Array from "./Array/Array";
 import "./Sorting.css";
 import { getMergeSortAnimations } from "./Algorithms/mergeSortAlgo";
+import { getQuickSortAnimations } from "./Algorithms/quickSortAlgo";
 
 const MIN = 5;
 const MAX = 30;
@@ -150,7 +151,7 @@ const Sorting = () => {
   const mergeSort = (array) => {
     return new Promise((resolve, reject) => {
       const [animations, sortedArray] = getMergeSortAnimations(array);
-      console.log(sortedArray)
+      console.log(sortedArray);
       for (let i = 0; i <= animations.length; i++) {
         if (i === animations.length) {
           setTimeout(() => {
@@ -183,6 +184,43 @@ const Sorting = () => {
     });
   };
 
+  const quickSort = (array) => {
+    return new Promise((resolve, reject) => {
+      const [animations, sortedArray] = getQuickSortAnimations(array);
+      for (let i = 0; i <= animations.length; i++) {
+        if (i === animations.length) {
+          setTimeout(() => {
+            resolve(setArray(sortedArray));
+          }, (i * 30) / speed);
+          break;
+        }
+        const isColorChange =
+          animations[i][0] == "comparision1" ||
+          animations[i][0] == "comparision2";
+        const arrayBars = document.getElementsByClassName("array-bar");
+        if (isColorChange === true) {
+          const color = animations[i][0] == "comparision1" ? "red" : "teal";
+          const [comparision, barOneIndex, barTwoIndex] = animations[i];
+          const barOneStyle = arrayBars[barOneIndex].style;
+          const barTwoStyle = arrayBars[barTwoIndex].style;
+          setTimeout(() => {
+            barOneStyle.backgroundColor = color;
+            barTwoStyle.backgroundColor = color;
+          }, (i * 30) / speed);
+        } else {
+          const [swap, barIndex, newHeight] = animations[i];
+          if (barIndex === -1) {
+            continue;
+          }
+          const barStyle = arrayBars[barIndex].style;
+          setTimeout(() => {
+            barStyle.height = `${newHeight}px`;
+          }, (i * 30) / speed);
+        }
+      }
+    });
+  };
+
   const visualizeSort = (algorithem) => {
     if (algorithem === "bubbleSort") {
       bubbleSort(array).then(() => {
@@ -197,6 +235,9 @@ const Sorting = () => {
         setDisabled(false);
       });
     } else if (algorithem === "quickSort") {
+      quickSort(array).then(() => {
+        setDisabled(false);
+      });
     } else if (algorithem === "selectionSort") {
       selectionSort(array).then(() => {
         setDisabled(false);
