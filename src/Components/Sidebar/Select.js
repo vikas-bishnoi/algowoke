@@ -8,6 +8,7 @@ const Select = ({
   setSelected,
   selectedOption,
   setSelectedOption,
+  disabled,
   setDisabled,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,8 @@ const Select = ({
   };
 
   const onClick = () => {
-    setIsOpen(!isOpen);
+    if(!disabled)
+      setIsOpen(!isOpen);
   };
 
   const ChevronDown = () => (
@@ -58,7 +60,7 @@ const Select = ({
           {isOpen ? <ChevronUp /> : <ChevronDown />}
         </span>
       </div>
-      {isOpen && options.length !== 0 && (
+      {isOpen && !disabled && options.length !== 0 && (
         <div className="options">
           {options.map((option, index) => {
             const { value, label } = option;

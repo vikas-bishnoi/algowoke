@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getBubbleSortAnimations } from "./Algorithms/bubbleSortAlgo";
 import SideBar from "../Components/Sidebar/Sidebar";
-import BubbleSort from "./BubbleSort/BubbleSort";
+import Array from "./Array/Array";
 import "./Sorting.css";
 
 const MIN = 5;
@@ -57,7 +57,7 @@ const Sorting = () => {
           setTimeout(() => {
             barOneStyle.backgroundColor = color;
             barTwoStyle.backgroundColor = color;
-          }, i * speed * 30);
+          }, (i * 30) / speed);
         } else {
           const [swap, barIndex, newHeight] = animations[i];
           if (barIndex === -1) {
@@ -66,7 +66,7 @@ const Sorting = () => {
           const barStyle = arrayBars[barIndex].style;
           setTimeout(() => {
             barStyle.height = `${newHeight}px`;
-          }, i * 1 * 30);
+          }, (i * 30) / speed);
         }
       }
     });
@@ -102,7 +102,7 @@ const Sorting = () => {
         setDisabled={setDisabled}
       />
       <div className="algorithem">
-        {array.length && <BubbleSort unsortedArray={array} />}
+        {array.length && <Array unsortedArray={array} />}
       </div>
     </div>
   );

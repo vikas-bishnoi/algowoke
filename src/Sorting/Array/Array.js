@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { getBubbleSortAnimations } from '../Algorithms/bubbleSortAlgo';
-import "./BubbleSort.css";
+import "./Array.css";
 
 
 const PRIMARY_COLOR = 'teal';
 
 
-const BubbleSort = ({ unsortedArray }) => {
+const Array = ({ unsortedArray }) => {
   const [array, setArray] = useState([]);
 
   useEffect(() => {
@@ -30,4 +29,4 @@ const BubbleSort = ({ unsortedArray }) => {
   );
 };
 
-export default BubbleSort;
+export default Array;
