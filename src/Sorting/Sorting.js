@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getBubbleSortAnimations } from "./Algorithms/bubbleSortAlgo";
 import { getInsertionSortAnimations } from "./Algorithms/insertionSortAlgo";
+import { getSelectionSortAnimations } from "./Algorithms/selectionSortAlgo";
+import { ge } from "./Algorithms/insertionSortAlgo";
 import SideBar from "../Components/Sidebar/Sidebar";
 import Array from "./Array/Array";
 import "./Sorting.css";
@@ -73,14 +75,14 @@ const Sorting = () => {
     });
   };
 
-  const insertionSort = () => {
+  const insertionSort = (array) => {
     return new Promise((resolve, reject) => {
       const [animations, sortedArray] = getInsertionSortAnimations(array);
       for (let i = 0; i <= animations.length; i++) {
         if (i === animations.length) {
           setTimeout(() => {
             resolve(setArray(sortedArray));
-          }, (i * 30)/speed);
+          }, (i * 30) / speed);
           break;
         }
         const isColorChange =
@@ -95,16 +97,52 @@ const Sorting = () => {
           setTimeout(() => {
             barOneStyle.backgroundColor = color;
             barTwoStyle.backgroundColor = color;
-          }, i * 30 / speed);
+          }, (i * 30) / speed);
         } else {
           const [temp, barIndex, newHeight] = animations[i];
           const barStyle = arrayBars[barIndex].style;
           setTimeout(() => {
             barStyle.height = `${newHeight}px`;
-          }, i * 30 / speed);
+          }, (i * 30) / speed);
         }
       }
       console.log(animations.length);
+    });
+  };
+
+  const selectionSort = (array) => {
+    return new Promise((resolve, reject) => {
+      const [animations, sortedArray] = getSelectionSortAnimations(array);
+
+      for (let i = 0; i <= animations.length; i++) {
+        if (i === animations.length) {
+          setTimeout(() => {
+            resolve(setArray(sortedArray));
+          }, (i * 30) / speed);
+          break;
+        }
+
+        const isColorChange =
+          animations[i][0] === "comparision1" ||
+          animations[i][0] === "comparision2";
+        const arrayBars = document.getElementsByClassName("array-bar");
+        if (isColorChange === true) {
+          const color = animations[i][0] === "comparision1" ? "red" : "teal";
+          const [temp, barOneIndex, barTwoIndex] = animations[i];
+          const barOneStyle = arrayBars[barOneIndex].style;
+          const barTwoStyle = arrayBars[barTwoIndex].style;
+          setTimeout(() => {
+            barOneStyle.backgroundColor = color;
+            barTwoStyle.backgroundColor = color;
+          }, (i * 30) / speed);
+        } else {
+          const [temp, barIndex, newHeight] = animations[i];
+          const barStyle = arrayBars[barIndex].style;
+          setTimeout(() => {
+            barStyle.height = `${newHeight}px`;
+          }, (i * 30) / speed);
+        }
+      }
     });
   };
 
@@ -120,6 +158,9 @@ const Sorting = () => {
     } else if (algorithem === "mergeSort") {
     } else if (algorithem === "quickSort") {
     } else if (algorithem === "selectionSort") {
+      selectionSort(array).then(() => {
+        setDisabled(false);
+      });
     } else {
       alert("Select a valid algorithem");
     }
