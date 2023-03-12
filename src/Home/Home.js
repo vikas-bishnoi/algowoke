@@ -1,4 +1,5 @@
 import React from "react";
+import './Home.css'
 
 const Home = () => {
   return (
@@ -6,14 +7,12 @@ const Home = () => {
       <div
         id="home"
         style={{
-          backgroundImage: `url(https://static.pexels.com/photos/232/apple-iphone-books-desk-large.jpg)`,
+          backgroundImage: `url('http://i.stack.imgur.com/kx8MT.gif')`,
         }}
-        className=" bg-center bg-cover bg-no-repeat h-90 flex flex-col "
+        className="bg-center bg-cover bg-no-repeat flex flex-col "
       >
-        <div className="wrapper flex justify-between items-center h-screen w-full px-20 lg:justify-center lg:px-6">
+        <div className="flex wrapper justify-between items-center">
           <div className="content lg:text-center">
-            <div className="btn py-3">
-            </div>
           </div>
         </div>
       </div>
