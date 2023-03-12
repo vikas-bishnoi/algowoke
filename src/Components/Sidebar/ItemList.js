@@ -22,7 +22,9 @@ const ItemList = ({
   const visualizeHandler = () => {
     setDisabled(true)
     if(selectedOption === '') {
+      console.log(selectedOption)
       setSelected(false)
+      setDisabled(false)
     } else {
       onVisualize(selectedOption)
     }

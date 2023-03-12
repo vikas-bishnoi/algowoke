@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getBubbleSortAnimations } from "./Algorithms/bubbleSortAlgo";
+import { getInsertionSortAnimations } from "./Algorithms/insertionSortAlgo";
 import SideBar from "../Components/Sidebar/Sidebar";
 import Array from "./Array/Array";
 import "./Sorting.css";
@@ -35,11 +36,11 @@ const Sorting = () => {
 
   const bubbleSort = (array) => {
     return new Promise((resolve, reject) => {
-      const [animations, sortArray] = getBubbleSortAnimations(array);
+      const [animations, sortedArray] = getBubbleSortAnimations(array);
       for (let i = 0; i <= animations.length; i++) {
-        if(i === animations.length) {
+        if (i === animations.length) {
           setTimeout(() => {
-            resolve(setArray(sortArray));
+            resolve(setArray(sortedArray));
           }, i * speed * 30);
           break;
         }
@@ -72,12 +73,50 @@ const Sorting = () => {
     });
   };
 
+  const insertionSort = () => {
+    return new Promise((resolve, reject) => {
+      const [animations, sortedArray] = getInsertionSortAnimations(array);
+      for (let i = 0; i <= animations.length; i++) {
+        if (i === animations.length) {
+          setTimeout(() => {
+            resolve(setArray(sortedArray));
+          }, i * speed * 30);
+          break;
+        }
+        const isColorChange =
+          animations[i][0] === "comparision1" ||
+          animations[i][0] === "comparision2";
+        const arrayBars = document.getElementsByClassName("array-bar");
+        if (isColorChange === true) {
+          const color = animations[i][0] === "comparision1" ? "red" : "teal";
+          const [temp, barOneIndex, barTwoIndex] = animations[i];
+          const barOneStyle = arrayBars[barOneIndex].style;
+          const barTwoStyle = arrayBars[barTwoIndex].style;
+          setTimeout(() => {
+            barOneStyle.backgroundColor = color;
+            barTwoStyle.backgroundColor = color;
+          }, i * 1);
+        } else {
+          const [temp, barIndex, newHeight] = animations[i];
+          const barStyle = arrayBars[barIndex].style;
+          setTimeout(() => {
+            barStyle.height = `${newHeight}px`;
+          }, i * 1);
+        }
+      }
+      console.log(animations.length);
+    });
+  };
+
   const visualizeSort = (algorithem) => {
     if (algorithem === "bubbleSort") {
       bubbleSort(array).then(() => {
         setDisabled(false);
       });
     } else if (algorithem === "insertionSort") {
+      insertionSort(array).then(() => {
+        setDisabled(false);
+      });
     } else if (algorithem === "mergeSort") {
     } else if (algorithem === "quickSort") {
     } else if (algorithem === "selectionSort") {
