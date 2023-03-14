@@ -15,6 +15,7 @@ h2 {
 
 #home {
 	height: 87%;
+	margin: auto;
 }
 
 
@@ -22,10 +23,14 @@ h2 {
 	margin: auto;
     text-shadow: 2px 2px 2px #323232;
     font-size: 7vw;
-    color: #E1E1E1;
+	font-weight: bolder;
+    color: #ff6f6f;
 }
 
 .home-subtitle {
-    text-shadow: 2px 2px 2px #323232;
-    font-size: 4.6vw;
+	margin: auto;
+    text-shadow: 1px 1px 1px #29572c;
+	font-weight: bolder;
+    font-size: 4vw;
+    color: #056b9b;
 }
