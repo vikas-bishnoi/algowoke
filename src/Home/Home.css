@@ -3,6 +3,29 @@
 	margin: 0;
 }
 
+h1 {
+	color: white;
+    font-size: 7vw;
+}
+
+h2 {
+	color: white;
+    font-size: 7vw;
+}
+
 #home {
 	height: 87%;
+}
+
+
+.home-title {
+	margin: auto;
+    text-shadow: 2px 2px 2px #323232;
+    font-size: 7vw;
+    color: #E1E1E1;
+}
+
+.home-subtitle {
+    text-shadow: 2px 2px 2px #323232;
+    font-size: 4.6vw;
 }
