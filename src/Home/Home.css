@@ -1,34 +1,16 @@
-* {
-	padding: 0;
-	margin: 0;
-}
-
-h1 {
-	color: white;
-    font-size: 7vw;
-}
-
-h2 {
-	color: white;
-    font-size: 7vw;
-}
-
 #home {
-	height: 87%;
-	margin: auto;
+	height: 84vh;
 }
-
 
 .home-title {
 	margin: auto;
-    text-shadow: 2px 2px 2px #323232;
+    text-shadow: 1px 1px 1px #323232;
     font-size: 7vw;
 	font-weight: bolder;
     color: #ff6f6f;
 }
 
 .home-subtitle {
-	margin: auto;
     text-shadow: 1px 1px 1px #29572c;
 	font-weight: bolder;
     font-size: 4vw;

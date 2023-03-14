@@ -26,7 +26,7 @@ const Home = () => {
     setPhoto((prev) => prev + 1);
   };
 
-  const getBgUrl = () => {
+  const getBgImg = () => {
       switch (photo) {
         case 1:
           return GraphImg;
@@ -43,13 +43,12 @@ const Home = () => {
       <div
         id="home"
         style={{
-          backgroundImage: `url(${getBgUrl()})`,
+          backgroundImage: `url(${getBgImg()})`,
         }}
-        className="bg-bottom bg-contain bg-no-repeat grid justify-items-center"
+        className="bg-center bg-content bg-no-repeat grid justify-items-center"
       >
-        <div className="grid wrapper justify-between">
+        <div className="grid wrapper ">
           <h1 className="home-title">AlgoWoke</h1>
-          <hr />
           <h2 className="home-subtitle">Algorithms Visualizer</h2>
         </div>
       </div>
